@@ -12,3 +12,30 @@ page](https://docs.github.com/en/get-started/writing-on-github/working-with-adva
 might help with the notation for mathematical expressions.
 
 $T(n) \in O(f(n)) \iff \exists c, n_0: T(n) \leq c \cdot f(n) \forall n \geq n_0$
+
+# My Proof
+Keeping the following property of logs in mind: $\log_{a}x = [\log_{b}x/\log_{b}a]$
+
+\
+First let's show that $\log_{2} n \in O(\log_{5} n)$. That is we must show that $\exists c, n_0: \log_{2} n \leq c \cdot \log_{5} n, \forall n \geq n_0$. 
+
+We can rewrite $\log_{2} n$ as $[\log_{5} n/\log_{5} 2]$ and now we must show that $[\log_{5} n/\log_{5} 2] \leq c \cdot \log_{5} n, \forall n \geq n_0$
+
+$[\log_{5} n/\log_{5} 2] \leq c \cdot \log_{5} n$
+
+$\log_{5} n \leq c \cdot [\log_{5} 2 \cdot \log_{5} n]$
+
+the final line is obviously true and thus we've proven that $\log_{2} n \in O(\log_{5} n) \iff \exists c, n_0: \log_{2} n \leq c \cdot \log_{5} n, \forall n \geq n_0$.
+
+\
+Now we must prove the reverse, that $\log_{5} n \in O(\log_{2} n)$. To do this we'll use a similar method as above. 
+
+First we'll rewrite $\log_{5} n$ as $[\log_{2} 5 / \log_{2} n]$ and now we must show that $[\log_{2} n / \log_{} 5] \leq c \cdot \log_{2} n, \forall n \geq n_0$
+
+$[\log_{2} n/\log_{2} 5] \leq c \cdot \log_{2} n$
+
+$\log_{2} n \leq c \cdot [\log_{2} 5 \cdot \log_{2} n]$
+
+Once again it is trivial that $\log_{2} n \leq c \cdot [\log_{2} 5 \cdot \log_{2} n]$. 
+
+Since we've shown that $\log_{2} n \in O(\log_{5} n)$ and $\log_{5} n \in O(\log_{2} n)$ then we've proven that asymptotically log bases don't matter. 
